@@ -1,0 +1,13 @@
+{
+  "name": "adambisek/gulp-assets",
+  "type": "library",
+  "version": "v1.0.0",
+  "license": "MIT",
+  "minimum-stability": "stable",
+  "require": {
+    "nette/application": ">= 2.1"
+  },
+  "autoload": {
+    "psr-4": { "GulpAssets\\": "src" }
+  }
+}
