@@ -56,7 +56,9 @@ class ControlFactory
 			throw new \InvalidArgumentException("Section $section not found. Did you set it in config?");
 		}
 		$control = new CssControl();
-		$control->setFiles($this->config[$section]['css']);
+		if(isset($this->config[$section]['css'])){
+			$control->setFiles($this->config[$section]['css']);
+		}
 		$control->setBasePath($this->basePath);
 		return $control;
 	}
@@ -68,7 +70,9 @@ class ControlFactory
 			throw new \InvalidArgumentException("Section $section not found. Did you set it in config?");
 		}
 		$control = new JsControl();
-		$control->setFiles($this->config[$section]['js']);
+		if(isset($this->config[$section]['js'])) {
+			$control->setFiles($this->config[$section]['js']);
+		}
 		$control->setBasePath($this->basePath);
 		return $control;
 	}
