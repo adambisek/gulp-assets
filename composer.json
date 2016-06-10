@@ -7,6 +7,9 @@
   "require": {
     "nette/application": ">= 2.1"
   },
+  "require-dev": {
+    "phpunit/phpunit": "^4.8"
+  },
   "autoload": {
     "psr-4": { "GulpAssets\\": "src" }
   }
