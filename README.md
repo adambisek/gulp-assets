@@ -1,6 +1,8 @@
 gulp-assets
 ===========
 [![Build Status](https://travis-ci.org/adambisek/gulp-assets.svg?branch=master)](https://travis-ci.org/adambisek/gulp-assets)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/adambisek/gulp-assets/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/adambisek/gulp-assets/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/adambisek/gulp-assets/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/adambisek/gulp-assets/?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/adambisek/gulp-assets/v/stable)](https://packagist.org/packages/adambisek/gulp-assets)
 [![License](https://poser.pugx.org/adambisek/gulp-assets/license.png)](https://github.com/adambisek/gulp-assets/blob/master/LICENSE)
 
