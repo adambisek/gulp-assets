@@ -1,5 +1,6 @@
 gulp-assets
 ===========
+[![Build Status](https://travis-ci.org/adambisek/gulp-assets.svg?branch=master)](https://travis-ci.org/adambisek/gulp-assets)
 [![Latest Stable Version](https://poser.pugx.org/adambisek/gulp-assets/v/stable)](https://packagist.org/packages/adambisek/gulp-assets)
 [![License](https://poser.pugx.org/adambisek/gulp-assets/license.png)](https://github.com/adambisek/gulp-assets/blob/master/LICENSE)
 
