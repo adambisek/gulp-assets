@@ -1,0 +1,10 @@
+build:
+    tests:
+        before:
+            - "composer install"
+        override:
+            -
+                command: 'cd tests && ../vendor/bin/phpunit  --coverage-clover=clover.xml .'
+                coverage:
+                    file: tests/clover.xml
+                    format: clover
