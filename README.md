@@ -6,6 +6,8 @@ gulp-assets
 [![Latest Stable Version](https://poser.pugx.org/adambisek/gulp-assets/v/stable)](https://packagist.org/packages/adambisek/gulp-assets)
 [![License](https://poser.pugx.org/adambisek/gulp-assets/license.png)](https://github.com/adambisek/gulp-assets/blob/master/LICENSE)
 
+This component is intended to use with Nette Framework.
+When you are using gulp for processing assets, <b>you don't need Webloader anymore</b>.
 Simply link gulp processed assets to page.
 Adds file hash into query string to force refresh after gulp process new files.
 
@@ -19,7 +21,7 @@ composer require adambisek/gulp-assets
 
 Usage
 ------------
-config.neon -> simple define output gulp files
+config.neon -> simple define output gulp files a define factory service
 ```
 parameters:
 	assetsFactory:
@@ -35,7 +37,7 @@ services:
 	- GulpAssets\ControlFactory(%assetsFactory%)
 ```
 
-BasePresenter -> create renderable components
+BasePresenter -> create renderable components with factory service
 ```
 public function createComponentCss()
 {
@@ -48,7 +50,7 @@ public function createComponentJs()
 }
 ```
 
-Template:
+Template [(Latte)](https://latte.nette.org/):
 ```
 <html>
 	<head>
