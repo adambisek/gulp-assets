@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace GulpAssets;
 
 /**
@@ -8,25 +10,28 @@ namespace GulpAssets;
 class ControlFactory
 {
 
-	/** @var array */
+	/** @var mixed[] */
 	private $config;
 
 	/** @var string */
 	private $basePath;
 
 
-	public function __construct(array $config = NULL)
+	public function __construct(array $config = null)
 	{
-		if($config !== NULL){
+		if ($config !== null) {
 			$this->setConfig($config);
-			if(isset($config['basePath'])){
+			if (isset($config['basePath'])) {
 				$this->setBasePath($config['basePath']);
 			}
 		}
 	}
 
 
-	public function setConfig(array $config)
+	/**
+	 * @param mixed[] $config
+	 */
+	public function setConfig(array $config): void
 	{
 		$this->config = $config;
 	}
@@ -35,7 +40,7 @@ class ControlFactory
 	/**
 	 * @return string
 	 */
-	public function getBasePath()
+	public function getBasePath(): string
 	{
 		return $this->basePath;
 	}
@@ -44,36 +49,52 @@ class ControlFactory
 	/**
 	 * @param string $basePath
 	 */
-	public function setBasePath($basePath)
+	public function setBasePath(string $basePath): void
 	{
 		$this->basePath = $basePath;
 	}
 
 
-	public function createCssControl($section)
+	/**
+	 * @param mixed $section
+	 * @return CssControl
+	 */
+	public function createCssControl($section): CssControl
 	{
-		if(!isset($this->config[$section])){
-			throw new \InvalidArgumentException("Section $section not found. Did you set it in config?");
+		if (!isset($this->config[$section])) {
+			throw new \InvalidArgumentException('Section "' . $section . '" not found. Did you set it in config?');
 		}
-		$control = new CssControl();
-		if(isset($this->config[$section]['css'])){
+
+		$control = new CssControl;
+
+		if (isset($this->config[$section]['css'])) {
 			$control->setFiles($this->config[$section]['css']);
 		}
+
 		$control->setBasePath($this->basePath);
+
 		return $control;
 	}
 
 
-	public function createJsControl($section)
+	/**
+	 * @param mixed $section
+	 * @return JsControl
+	 */
+	public function createJsControl($section): JsControl
 	{
-		if(!isset($this->config[$section])){
-			throw new \InvalidArgumentException("Section $section not found. Did you set it in config?");
+		if (!isset($this->config[$section])) {
+			throw new \InvalidArgumentException('Section "' . $section . '" not found. Did you set it in config?');
 		}
-		$control = new JsControl();
-		if(isset($this->config[$section]['js'])) {
+
+		$control = new JsControl;
+
+		if (isset($this->config[$section]['js'])) {
 			$control->setFiles($this->config[$section]['js']);
 		}
+
 		$control->setBasePath($this->basePath);
+
 		return $control;
 	}
 
