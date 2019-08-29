@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace GulpAssets;
 
 /**
@@ -8,35 +10,34 @@ namespace GulpAssets;
 class BaseControl extends \Nette\Application\UI\Control
 {
 
-	/** @var array */
-	protected $files;
+	/** @var string[] */
+	protected $files = [];
 
-	/** @var string */
+	/** @var string|null */
 	private $basePath;
 
-
 	/**
-	 * @return array
+	 * @return string[]
 	 */
-	public function getFiles()
+	public function getFiles(): array
 	{
 		return $this->files;
 	}
 
 
 	/**
-	 * @param array $files
+	 * @param string[] $files
 	 */
-	public function setFiles($files)
+	public function setFiles(array $files): void
 	{
 		$this->files = $files;
 	}
 
 
 	/**
-	 * @return string
+	 * @return string|null
 	 */
-	public function getBasePath()
+	public function getBasePath(): ?string
 	{
 		return $this->basePath;
 	}
@@ -45,16 +46,16 @@ class BaseControl extends \Nette\Application\UI\Control
 	/**
 	 * @param string $basePath
 	 */
-	public function setBasePath($basePath)
+	public function setBasePath(string $basePath): void
 	{
 		$this->basePath = $basePath;
 	}
 
 
-	protected function formatFileUrl($file)
+	protected function formatFileUrl(string $file): string
 	{
 		$appendix = '';
-		if(is_file($this->basePath . '/' . $file)){
+		if (is_file($this->basePath . '/' . $file)) {
 			$appendix = '?' . md5(filemtime($this->basePath . '/' . $file));
 		}
 

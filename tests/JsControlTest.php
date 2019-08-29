@@ -10,7 +10,7 @@ class JsControlTest extends PHPUnit_Framework_TestCase
 	private $control;
 
 
-	public function setUp()
+	public function setUp(): void
 	{
 		parent::setUp();
 		$this->control = new \GulpAssets\JsControl();
@@ -23,16 +23,16 @@ class JsControlTest extends PHPUnit_Framework_TestCase
 	}
 
 
-	public function testGetSet()
+	public function testGetSet(): void
 	{
 		$this->assertEquals([
-			'script.js'
+			'script.js',
 		], $this->control->getFiles());
 		$this->assertEquals(__DIR__ . '/test-assets', $this->control->getBasePath());
 	}
 
 
-	public function testRender()
+	public function testRender(): void
 	{
 		ob_start();
 		$this->control->render();

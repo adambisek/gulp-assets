@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace GulpAssets;
 
 /**
@@ -8,7 +10,7 @@ namespace GulpAssets;
 class JsControl extends BaseControl
 {
 
-	public function render()
+	public function render(): void
 	{
 		foreach ($this->files as $file) {
 			echo '<script type="text/javascript" src="' . $this->formatFileUrl($file) . '"></script>';
